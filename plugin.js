@@ -14,18 +14,6 @@
 
         editor.on("contentDom", function () {
             var editableElement = editor.editable ? editor.editable() : editor.document;
-
-            // IE Code
-            //if (CKEDITOR.env.ie && CKEDITOR.env.version >= 11 && editor.config.forcePasteAsPlainText && editor.editable().isInline())
-            //    editableElement.attachListener(editableElement, "beforepaste", function () {
-            //        editor.document.on("paste", function (a) {
-            //            editor.removeListener();
-            //            p(editor)
-            //        }, null, {editor: editor})
-            //    });
-            //else
-            //    editableElement.on("paste", p, null, {editor: editor}, 8);
-
             editableElement.on("paste", onPaste, null, {editor: editor});
         });
 
